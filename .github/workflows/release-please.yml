@@ -32,6 +32,7 @@ jobs:
         if: ${{ steps.release_main.outputs.release_created }}
         run: |
           sudo apt-get install --yes zlib1g-dev libbz2-dev musl musl-dev musl-tools clang libc6-dev
+          export RUSTFLAGS='-C linker=rust-lld -Z linker-flavor=ld64.lld'
 
       - uses: Swatinem/rust-cache@v1.3.0
         if: ${{ steps.release_main.outputs.release_created }}
