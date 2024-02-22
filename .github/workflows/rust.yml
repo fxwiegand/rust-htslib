@@ -123,6 +123,7 @@ jobs:
 
       - name: Install system dependencies
         run: |
+          export RUSTFLAGS='-C linker=rust-lld -Z linker-flavor=ld64.lld'
           sudo apt-get install --yes zlib1g-dev libbz2-dev musl musl-dev musl-tools clang libc6-dev
 
       - uses: Swatinem/rust-cache@v1.3.0
